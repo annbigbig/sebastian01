@@ -1,10 +1,4 @@
-package com.kashu.learning.example.domain;
-/**
- * Example class
- * @author Sebastian Hennebrueder
- * created Jan 16, 2006
- * copyright 2006 by http://www.laliluna.de
- */
+package com.kashu.learning.example.domain.annotation;
 
 import java.io.Serializable;
 import java.util.HashSet;

@@ -1,10 +1,11 @@
-package de.laliluna.sebastian.test;
+package de.laliluna.sebastian.test.xml;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import com.kashu.learning.example.domain.Bee;
-import com.kashu.learning.example.domain.Honey;
+import com.kashu.learning.example.domain.xml.Bee;
+import com.kashu.learning.example.domain.xml.Honey;
+import de.laliluna.sebastian.test.InitSessionFactory;
 
 public class TestAlternative {
 

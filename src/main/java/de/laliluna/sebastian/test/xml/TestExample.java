@@ -1,4 +1,4 @@
-package de.laliluna.sebastian.test;
+package de.laliluna.sebastian.test.xml;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Set;
 import org.hibernate.*;
 import org.hibernate.transform.DistinctRootEntityResultTransformer;
-import com.kashu.learning.example.domain.Bee;
-import com.kashu.learning.example.domain.Honey;
+import com.kashu.learning.example.domain.xml.Bee;
+import com.kashu.learning.example.domain.xml.Honey;
+import de.laliluna.sebastian.test.InitSessionFactory;
 
 public class TestExample {
 

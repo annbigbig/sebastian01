@@ -1,9 +1,7 @@
-package com.kashu.learning.example.domain;
-
+package com.kashu.learning.example.domain.annotation;
 
 import java.io.Serializable;
 import java.text.MessageFormat;
-
 
 public class Bee implements Serializable {
 
