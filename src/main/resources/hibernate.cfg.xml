@@ -33,14 +33,13 @@
     <!-- this will create the database tables for us -->
     <property name="hbm2ddl.auto">update</property>
     
-    <!-- XML-style mapping -->
+    <!-- XML-style mapping 
     <mapping resource="com/kashu/learning/example/domain/xml/Honey.hbm.xml" />
-    <mapping resource="com/kashu/learning/example/domain/xml/Bee.hbm.xml" />
+    <mapping resource="com/kashu/learning/example/domain/xml/Bee.hbm.xml" /> -->
     
     <!-- annotation-style mapping -->
-    <!-- 
 	<mapping class="com.kashu.learning.example.domain.annotation.Honey"/>
-	<mapping class="com.kashu.learning.example.domain.annotation.Bee"/> -->
+	<mapping class="com.kashu.learning.example.domain.annotation.Bee"/>
 
   </session-factory>
 

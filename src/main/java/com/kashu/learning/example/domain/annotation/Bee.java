@@ -3,12 +3,25 @@ package com.kashu.learning.example.domain.annotation;
 import java.io.Serializable;
 import java.text.MessageFormat;
 
-public class Bee implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="tbee")
+public class Bee implements Serializable {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
 	private String name;
 
+	@ManyToOne
+	@JoinColumn(name="honey_id")
 	private Honey honey;
 
 	public Bee() {

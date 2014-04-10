@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping package="com.kashu.learning.example.domain.xml">
 	<class name="Honey" table="thoney">
-		<id name="id">
+		<id name="id" column="id">
 			<!--  PostgreSQL generator for a sequence which is named honey_id_seq  -->
 			<!-- 
 			<generator class="sequence">
@@ -13,8 +13,8 @@
      <!--  generator selecting a generator depending on the database  -->
      <generator class="native"/>
 		</id>
-		<property name="name" type="string"></property>
-		<property name="taste" type="string"></property>
+		<property name="name" column="name" type="string"></property>
+		<property name="taste" column="taste" type="string"></property>
 		<set name="bees" inverse="true">
 			<key column="honey_id"></key>
 			<one-to-many class="Bee" />
