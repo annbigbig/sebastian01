@@ -5,7 +5,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import com.kashu.learning.example.domain.annotation.Bee;
 import com.kashu.learning.example.domain.annotation.Honey;
-import de.laliluna.sebastian.test.InitSessionFactory;
 
 public class TestAlternative {
 

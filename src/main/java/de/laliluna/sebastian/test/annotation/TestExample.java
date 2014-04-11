@@ -8,7 +8,6 @@ import org.hibernate.*;
 import org.hibernate.transform.DistinctRootEntityResultTransformer;
 import com.kashu.learning.example.domain.annotation.Bee;
 import com.kashu.learning.example.domain.annotation.Honey;
-import de.laliluna.sebastian.test.InitSessionFactory;
 
 public class TestExample {
 
@@ -85,7 +84,9 @@ public class TestExample {
 	private static void createRelation() {
 		Session session = InitSessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		/*
+		/* 原作者寫法， 根本就不能這樣寫會跳
+		 * Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Column 'honey_id' cannot be null
+		 * 因為類別Bee映射的資料表tbee 的foreign key不能是null
 		Honey honey = new Honey();
 		honey.setName("country honey");
 		honey.setTaste("Delicious");
@@ -102,11 +103,12 @@ public class TestExample {
 		Honey honey = new Honey();
 		honey.setName("country honey");
 		honey.setTaste("Delicious");
+		session.save(honey);
 		
 		Bee bee = new Bee("Sebastian");
 		bee.setHoney(honey);
-		session.save(honey);
-		
+		session.save(bee);
+
 		tx.commit();
 		session.close();
 	}
@@ -144,10 +146,12 @@ public class TestExample {
 		honeys = session.createQuery(
 			"select h from Honey as h left join fetch h.bees")
 			.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-		session.createCriteria(Honey.class)
+		printAllHoneysWithBees(honeys);
+		
+		honeys = session.createCriteria(Honey.class)
 			.setFetchMode("bees", FetchMode.JOIN).setResultTransformer(
 			Criteria.DISTINCT_ROOT_ENTITY).list();
-
+		printAllHoneysWithBees(honeys);
 		tx.commit();
 		session.close();
 	}
@@ -170,5 +174,17 @@ public class TestExample {
 		session.close();
 		return forestHoney;
 
+	}
+	
+	private static void printAllHoneysWithBees(List honeys){
+		System.out.println("===================");
+		for(Honey honey :(List<Honey>) honeys){
+			log.debug("{}", honey);
+			if(honey.getBees()!=null){
+				for(Bee bee : honey.getBees()){
+					log.debug("{}", bee);
+				}
+			}
+		}
 	}
 }

@@ -64,7 +64,7 @@ public class Bee implements Serializable {
 	}
 
 	public String toString() {
-		return MessageFormat.format("{0}: id={1}, name={2}", new Object[] {
+		return MessageFormat.format("====={0}: id={1}, name={2}", new Object[] {
 				getClass().getSimpleName(), id, name });
 	}
 }
